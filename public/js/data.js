@@ -107,7 +107,7 @@ function getUserData(city){
   var request = new XMLHttpRequest();
   request.addEventListener('load', function(data){
     var airData = JSON.parse(data.currentTarget.responseText);
-    console.log(airData);
+    visualize(airData);
     updateDisplay(airData);
   });
   request.open('GET', "/allUsers/" + city);
