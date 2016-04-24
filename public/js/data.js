@@ -2,20 +2,31 @@
 
 var get_data = document.getElementById('get_data');
 var display = document.getElementById('display');
+var globalMap;
 
 window.onload = function(){
   var request = new XMLHttpRequest();
   request.addEventListener('load', function(data){
     var city = data.currentTarget.responseText;
 
+    globalMap = L.map('mapid');
+
+      L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+        maxZoom: 18,
+        id: 'ypyang237.ponmj9ac',
+        accessToken: 'pk.eyJ1IjoieXB5YW5nMjM3IiwiYSI6ImNpbmR3MXJxeDB4NmF2ZmtxYXgzMWFseGgifQ.N2EZUCHiW2pvHq9LHQZnXw'
+      }).addTo(globalMap);
+
     var cityCapitalized = city.split("");
     cityCapitalized[0] = cityCapitalized[0].toUpperCase();
     cityCapitalized = cityCapitalized.join("");
     getUserData(cityCapitalized);
 
+
     getWeatherData(city, function(coords){
       getAirNowData(coords);
-      generateMap(coords);
+      generateMap(coords, globalMap);
     });
   });
 
@@ -38,7 +49,7 @@ get_data.addEventListener("click", function(){
   var city = document.getElementById('city').value;
   getWeatherData(city, function(coords){
     getAirNowData(coords);
-    generateMap(coords);
+    generateMap(coords, globalMap);
   });
 });
 
@@ -68,6 +79,7 @@ function getWeatherData(city, callback){
 function getAirNowData(coords){
   var request = new XMLHttpRequest();
   request.addEventListener('load', function(data){
+
     var airData = JSON.parse(data.currentTarget.responseText);
 
     console.log('airData', airData);
