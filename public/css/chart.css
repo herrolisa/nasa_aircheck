@@ -1,0 +1,16 @@
+@import url(http://fonts.googleapis.com/css?family=Oswald);
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+svg.horizontal-bar {
+  font-family: "Menlo", monospace;
+  background: #272727;
+  display: block;
+
+  .portion {
+    font-family: 'Oswald', sans-serif;
+  }
+}
