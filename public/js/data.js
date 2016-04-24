@@ -8,6 +8,7 @@ window.onload = function(){
   var request = new XMLHttpRequest();
   request.addEventListener('load', function(data){
     var city = data.currentTarget.responseText;
+
     globalMap = L.map('mapid');
 
       L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -17,12 +18,18 @@ window.onload = function(){
         accessToken: 'pk.eyJ1IjoieXB5YW5nMjM3IiwiYSI6ImNpbmR3MXJxeDB4NmF2ZmtxYXgzMWFseGgifQ.N2EZUCHiW2pvHq9LHQZnXw'
       }).addTo(globalMap);
 
+    var cityCapitalized = city.split("");
+    cityCapitalized[0] = cityCapitalized[0].toUpperCase();
+    cityCapitalized = cityCapitalized.join("");
+    getUserData(cityCapitalized);
+
 
     getWeatherData(city, function(coords){
       getAirNowData(coords);
       generateMap(coords, globalMap);
     });
   });
+
   request.open('GET', "/search/currentCity");
   request.send();
 };
@@ -72,8 +79,29 @@ function getWeatherData(city, callback){
 function getAirNowData(coords){
   var request = new XMLHttpRequest();
   request.addEventListener('load', function(data){
+
+    var airData = JSON.parse(data.currentTarget.responseText);
+
+    console.log('airData', airData);
+
+    updateDisplay({
+      "AirNow Category" : airData[0].Category.Name,
+      "AirNow Condition" : airData[0].Category.Number,
+      "Discussion" : airData[0].Discussion || "N/A"
+    });
+
   });
   request.open('GET', "/api/airnow/" + coords.lon + "/" + coords.lat);
+  request.send();
+}
+
+function getUserData(city){
+  var request = new XMLHttpRequest();
+  request.addEventListener('load', function(data){
+    var airData = JSON.parse(data.currentTarget.responseText);
+    updateDisplay(airData);
+  });
+  request.open('GET', "/allUsers/" + city);
   request.send();
 }
 
