@@ -1,13 +1,7 @@
-function generateMap(coords){
+function generateMap(coords, mymap){
 
-var mymap = L.map('mapid').setView([coords.lat, coords.lon], 13);
 
-L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-    maxZoom: 18,
-    id: 'ypyang237.ponmj9ac',
-    accessToken: 'pk.eyJ1IjoieXB5YW5nMjM3IiwiYSI6ImNpbmR3MXJxeDB4NmF2ZmtxYXgzMWFseGgifQ.N2EZUCHiW2pvHq9LHQZnXw'
-}).addTo(mymap);
+mymap.setView([coords.lat, coords.lon], 13);
 
 var marker = L.marker([coords.lat, coords.lon]).addTo(mymap);
 
