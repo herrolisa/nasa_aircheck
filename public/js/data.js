@@ -38,15 +38,26 @@ window.onload = function(){
 function updateDisplay(object){
   for (var prop in object){
     if(object.hasOwnProperty(prop)){
-      var p = document.createElement('p');
-      p.innerHTML = prop + ": " + object[prop];
-      display.appendChild(p);
+
+      if(prop === "Discussion") {
+        var pd = document.createElement('p');
+        pd.innerHTML = prop + ": " + object[prop];
+        pd.className = "description";
+        display.appendChild(pd);
+      }
+      else {
+        var p = document.createElement('p');
+        p.innerHTML = prop + ": " + object[prop];
+        display.appendChild(p);
+      }
+
     }
   }
 }
 
 get_data.addEventListener("click", function(){
   display.innerHTML = "";
+  document.getElementById('chart').innerHTML = "";
   var city = document.getElementById('city').value;
 
   var cityCapitalized = city.split("");
