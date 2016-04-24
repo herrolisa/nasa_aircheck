@@ -93,7 +93,7 @@ function getAirNowData(coords, callback){
     updateDisplay({
       "AirNow Category" : airData[0].Category.Name,
       "AirNow Condition" : airData[0].Category.Number,
-      "Discussion" : airData[0].Discussion || "N/A"
+      "Discussion" : airData[0].Discussion || "Air Quality All Good"
     });
 
     callback(airData[0].Category.Name);
@@ -107,6 +107,7 @@ function getUserData(city){
   var request = new XMLHttpRequest();
   request.addEventListener('load', function(data){
     var airData = JSON.parse(data.currentTarget.responseText);
+    console.log(airData);
     updateDisplay(airData);
   });
   request.open('GET', "/allUsers/" + city);
