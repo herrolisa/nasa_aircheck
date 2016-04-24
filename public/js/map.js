@@ -63,4 +63,5 @@ canvasTiles.drawTile = function(canvas, tilePoint, zoom) {
 
 mymap.on('click', onMapClick);
 
+
 }
