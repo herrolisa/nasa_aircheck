@@ -1,16 +1,11 @@
-// L.mapbox.accessToken = 'pk.eyJ1IjoieXB5YW5nMjM3IiwiYSI6ImNpbmRuaHhzYjB4NWR1OGx3MzZrbmtzcjMifQ.pUw3dSHLGA-1Dv3vJIaDQA';
-
 var mymap = L.map('mapid').setView([21.30694, -157.858337], 13);
-
-
-
 
 
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
     maxZoom: 18,
     id: 'ypyang237.ponmj9ac',
-    accessToken: 'pk.eyJ1IjoieXB5YW5nMjM3IiwiYSI6ImNpbmRuaHhzYjB4NWR1OGx3MzZrbmtzcjMifQ.pUw3dSHLGA-1Dv3vJIaDQA'
+    accessToken: 'pk.eyJ1IjoieXB5YW5nMjM3IiwiYSI6ImNpbmR3MXJxeDB4NmF2ZmtxYXgzMWFseGgifQ.N2EZUCHiW2pvHq9LHQZnXw'
 }).addTo(mymap);
 
 var marker = L.marker([21.30694, -157.858337]).addTo(mymap);

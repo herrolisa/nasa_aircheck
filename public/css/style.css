@@ -1,3 +1,181 @@
-html {
-  background-color: lightblue;
+@import url(https://fonts.googleapis.com/css?family=Ubuntu:400,700,700italic,400italic);
+@import url(https://fonts.googleapis.com/css?family=Hind:400,700);
+* {
+    margin: 0;
+    box-sizing:border-box;
+}
+
+body{
+	font-family: 'Hind', sans-serif;
+}
+
+h1{
+	font-family: 'Ubuntu', sans-serif;
+	padding-bottom: 10px;
+}
+h3{
+	font-family: 'Ubuntu', sans-serif;
+}
+
+.backgroundimg {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+}
+
+#back1 {
+    background: url("../img/pexels-photo-25541.jpg") no-repeat center fixed;
+	background-size: cover;
+}
+
+#back2 {
+    background: url("../img/pexels-photo-60168.jpg") no-repeat center fixed;
+	background-size: cover;
+}
+
+#back3 {
+    background: url("../img/pexels-photo-87739.jpg") no-repeat center fixed;
+	background-size: cover;
+}
+
+#back4 {
+    background: url("../img/sky-sun-freedom-orange.jpg") no-repeat center fixed;
+	background-size: cover;
+}
+
+#back5 {
+    background: url("../img/pexels-photo-31011.jpg") no-repeat center fixed;
+	background-size: cover;
+}
+
+@keyframes backgroundchangeFadeInOut {
+	0% {
+		opacity:1;
+	}
+	17% {
+	    opacity:1;
+	}
+  	25% {
+	    opacity:0;
+	}
+	92% {
+	    opacity:0;
+	}
+	100% {
+	    opacity:1;
+	}
+}
+
+@-webkit-keyframes backgroundchangeFadeInOut {
+	0% {
+		opacity:1;
+	}
+	17% {
+	    opacity:1;
+	}
+  	25% {
+	    opacity:0;
+	}
+	92% {
+	    opacity:0;
+	}
+	100% {
+	    opacity:1;
+	}
+}
+
+#backgroundchange div:nth-of-type(1) {
+	animation-delay: 8s;
+	-webkit-animation-delay: 8s;
+}
+#backgroundchange div:nth-of-type(2) {
+	animation-delay: 6s;
+	-webkit-animation-delay: 6s;
+}
+
+#backgroundchange div:nth-of-type(3) {
+	animation-delay: 4s;
+	-webkit-animation-delay: 4s;
+}
+
+#backgroundchange div:nth-of-type(4) {
+	animation-delay: 2s;
+	-webkit-animation-delay: 2s;
+}
+
+#backgroundchange div:nth-of-type(5) {
+	animation-delay: 0;
+	-webkit-animation-delay: 0;
+}
+
+#backgroundchange div {
+	animation-name: backgroundchangeFadeInOut;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
+	animation-duration: 8s;
+
+	-webkit-animation-name: backgroundchangeFadeInOut;
+	-webkit-animation-timing-function: ease-in-out;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-duration: 8s;
+}
+#main {
+	position: absolute;
+	margin: auto;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	padding: 20px;
+	width: 500px;
+	height: 225px;
+	background-color: rgba(255, 255, 255, 0.65);
+	border-radius: 10px;
+	z-index: 10;
+	text-align: center;
+}
+
+input {
+	display: block;
+	margin: 0 auto;
+	padding: 10px;
+	text-align: center;
+	font-family: 'Hind', sans-serif;
+	width: 450px;
+	border: none;
+	border-bottom: solid 2px #c9c9c9;
+	transition: border 0.3s;
+}
+
+input:focus {
+	border-bottom: solid 2px #969696;
+}
+
+button{
+	display: block;
+	margin: 0 auto;
+	margin-top: 10px;
+	padding: 2px 20px;
+	font-family: 'Hind', sans-serif;
+	border: 2px solid #c9c9c9;
+	text-align: center;
+  	text-transform: uppercase;
+  	background-color: #FFFFFF;
+}
+
+@media screen and (max-width: 500px){
+	#main{
+		border-radius: 0;
+		width: 100%;
+	}
+	input{
+		width: 250px;
+	}
 }
