@@ -1,67 +1,48 @@
-function generateMap(coords){
+function generateMap(coords, mymap, condition){
 
-var mymap = L.map('mapid').setView([coords.lat, coords.lon], 13);
+  console.log('condition', condition);
 
-L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-    maxZoom: 18,
-    id: 'ypyang237.ponmj9ac',
-    accessToken: 'pk.eyJ1IjoieXB5YW5nMjM3IiwiYSI6ImNpbmR3MXJxeDB4NmF2ZmtxYXgzMWFseGgifQ.N2EZUCHiW2pvHq9LHQZnXw'
-}).addTo(mymap);
+  mymap.setView([coords.lat, coords.lon], 13);
 
-var marker = L.marker([coords.lat, coords.lon]).addTo(mymap);
+  var marker;
 
-var circle = L.circle([coords.lat, coords.lon], 500, {
-    color: 'red',
-    fillColor: '#f03',
-    fillOpacity: 0.5
-}).addTo(mymap);
+  var medicalHelp = ['CVS ', 'LongsDrugs', 'Walgreens', 'Paper-Weight Clinic', 'Dr. Gomagames', 'PamPam Pharmacy', 'JoejoeBinx Hospital', 'Great-Success Hospital', 'Lisa-Pizza Urgent Care'];
 
-// var polygon = L.polygon([
-//     [21.30694, -157.858337],
-//     [21.305, -157.8582],
-//     [21.304, -157.857]
-// ]).addTo(mymap);
+  for (var i = 0; i < 6; i++) {
+    marker = L.marker([coords.lat + Math.floor(Math.random()*5)/100, coords.lon + Math.floor(Math.random()*5)/100]).addTo(mymap);
+    marker.bindPopup(medicalHelp[Math.floor(Math.random() * medicalHelp.length)]).openPopup();
+  }
 
+  // var circle = L.circle([coords.lat, coords.lon], 900, {
+  //     color: 'red',
+  //     fillColor: '#f03',
+  //     fillOpacity: 0.5
+  // }).addTo(mymap);
 
-marker.bindPopup("<b>Honolulu!</b><br>I am a popup.").openPopup();
-circle.bindPopup("I am a circle.");
-// polygon.bindPopup("I am a polygon.");
+  // var polygon = L.polygon([
+  //     [21.30694, -157.858337],
+  //     [21.305, -157.8582],
+  //     [21.304, -157.857]
+  // ]).addTo(mymap);
 
 
-var popup = L.popup();
+  // circle.bindPopup("I am a circle.");
+  // polygon.bindPopup("I am a polygon.");
+  // var popup = L.popup();
 
-var popup = L.popup()
-    .setLatLng([coords.lat, coords.lon])
-    .setContent("I am a standalone popup.")
-    .openOn(mymap);
+  var popup = L.popup()
+      .setLatLng([coords.lat + 0.0025, coords.lon + 0.001])
+      .setContent("Air quality here is pretty " + condition)
+      .openOn(mymap);
 
-function onMapClick(e) {
-    popup
-        .setLatLng(e.latlng)
-        .setContent("You clicked the map at " + e.latlng.toString())
-        .openOn(mymap);
-}
+  function onMapClick(e) {
+      popup
+          .setLatLng(e.latlng)
+          .setContent("Count of ppl suffering from " + 'allergies or respiratory symptoms')
+          .openOn(mymap);
+  }
 
-mymap.on('click', onMapClick);
-
-
-// function onMouseOver(e) {
-//     popup
-//         .setLatLng(e.latlng)
-//         .setContent("You clicked the map at " + e.latlng.toString())
-//         .openOn(mymap);
-// }
-
-
-var canvasTiles = L.tileLayer.canvas();
-
-canvasTiles.drawTile = function(canvas, tilePoint, zoom) {
-    var ctx = canvas.getContext('2d');
-    // draw something on the tile canvas
-}
-
-mymap.on('click', onMapClick);
+  mymap.on('click', onMapClick);
 
 
 }

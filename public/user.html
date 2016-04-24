@@ -6,12 +6,16 @@
   <link rel="stylesheet" href="./css/user.css">
 </head>
 <body>
+
 <div class="container">
   <h1>Symptoms Tracker</h1>
   <p>Please indicate to what degree are your symptoms affecting you on the scale from 0 (no symptom) to 5 (most severe): </p>
 
-  <form action="public/js/user.js" method="post" target="_blank" accept-charset="UTF-8"
+  <form action="/newUser" method="post" target="_blank" accept-charset="UTF-8"
   enctype="application/x-www-form-urlencoded" autocomplete="off" novalidate>
+
+  <input type="text" placeholder="Enter Your City Here" name="city"></input>
+
     <div class="survey">
       <div class="survey-left">
         <p>Coughing</p>
@@ -107,7 +111,6 @@
   <input type="submit">
   </form>
 </div>
-
 
 </body>
 </html>
