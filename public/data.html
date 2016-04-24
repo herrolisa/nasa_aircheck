@@ -7,17 +7,22 @@
   <link rel="stylesheet" href="./css/map.css">
 </head>
 <body>
+  <div id="new-search">
+    <input id="city" placeholder="Check Another City">
+    <button id="get_data">Get Data</button>
+  </div> <!--new-search -->
 
-  <input id="city">
-  <button id="get_data">Get Data</button>
+  <div id="results" class="clearfix">
+    <div id="left">
+      <h2 id="city_name"></h2>
+      <table id="display"></table>
+    </div> <!-- left -->
+    <div id="right">
+      <div id="mapid"></div>
+    </div> <!-- right -->
+  </div> <!-- results -->
+  
 
-  <h2 id="city_name"></h2>
-
-  <table id="display"></table>
-
-  <p>
-    <div id="mapid"></div>
-  </p>
 
   <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
   <script src="./js/map.js"></script>
