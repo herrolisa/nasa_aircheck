@@ -17,6 +17,7 @@ get_data.addEventListener("click", function(){
   var city = document.getElementById('city').value;
   getWeatherData(city, function(coords){
     getAirNowData(coords);
+    generateMap(coords);
   });
 });
 
@@ -44,7 +45,6 @@ function getWeatherData(city, callback){
 }
 
 function getAirNowData(coords){
-  console.log(coords);
   var request = new XMLHttpRequest();
   request.addEventListener('load', function(data){
     console.log('data', data.currentTarget.responseText);
