@@ -4,7 +4,7 @@ const express = require('express'),
       router  = express.Router()
       ;
 
-var currentCity = 'honolulu, us';
+var currentCity = 'Honolulu';
 
 router.route('/')
   .post(function(req,res){
