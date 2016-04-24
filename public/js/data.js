@@ -104,7 +104,7 @@ function getAirNowData(coords, callback){
     updateDisplay({
       "AirNow Category" : airData[0].Category.Name,
       "AirNow Condition" : airData[0].Category.Number,
-      "Discussion" : airData[0].Discussion || "Air Quality All Good"
+      "Discussion" : airData[0].Discussion || "Air Quality is " + airData[0].Category.Name
     });
 
     callback(airData[0].Category.Name);
