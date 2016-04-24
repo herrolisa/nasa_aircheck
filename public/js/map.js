@@ -1,4 +1,6 @@
-function generateMap(coords, mymap){
+function generateMap(coords, mymap, condition){
+
+  console.log('condition', condition);
 
   mymap.setView([coords.lat, coords.lon], 13);
 
@@ -30,7 +32,7 @@ function generateMap(coords, mymap){
 
   var popup = L.popup()
       .setLatLng([coords.lat + 0.0025, coords.lon + 0.001])
-      .setContent("Air quality here is pretty " + 'GOOD')
+      .setContent("Air quality here is pretty " + condition)
       .openOn(mymap);
 
   function onMapClick(e) {
