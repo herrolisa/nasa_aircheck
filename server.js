@@ -26,6 +26,11 @@ app.get('/api/openweather/:city', function(req,res){
   });
 });
 
+app.post('/search', function(req,res){
+  console.log(req.body);
+  res.redirect('/data.html');
+});
+
 app.listen(3000, function() {
   db.sequelize.sync();
   console.log('server started at 3000!');
