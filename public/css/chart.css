@@ -14,3 +14,7 @@ svg.horizontal-bar {
     font-family: 'Oswald', sans-serif;
   }
 }
+
+#chart {
+  margin-top: 1000px;
+}

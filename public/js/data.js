@@ -108,7 +108,7 @@ function getUserData(city){
   request.addEventListener('load', function(data){
     var airData = JSON.parse(data.currentTarget.responseText);
     visualize(airData);
-    updateDisplay(airData);
+    // updateDisplay(airData);
   });
   request.open('GET', "/allUsers/" + city);
   request.send();
@@ -121,7 +121,7 @@ function visualize(object) {
   var ANIM_DELAY, ANIM_DURATION, BAR_HEIGHT, COLORS, COLORS_G, DATA, H, INITIAL_WIDTH, M, MAX_VALUE, NAME, TOTAL_VALUE, W, container, g, highlight, highlightClear, host, oH, oW, percentScale, randomize, resize, svg, update, xScale, yScale;
   NAME = 'horizontal-bar';
   M = 0;
-  COLORS = ['#eaa54b', '#66a1e2', '#8065e4', '#48cb80'];
+  COLORS = ['#eaa54b', '#66a1e2', '#8065e4', '#48cb80', 'hsl(0, 50%, 50%)', 'hsl(250, 50%, 50%)', 'hsl(30, 100%, 50%)' ];
   COLORS_G = ['#b5b5b5', '#8c8c8c', '#6b6b6b', '#565656'];
   DATA = [
     {
