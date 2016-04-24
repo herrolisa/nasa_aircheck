@@ -24,9 +24,10 @@ window.onload = function(){
     getUserData(cityCapitalized);
 
 
-    getWeatherData(city, function(coords){
-      getAirNowData(coords);
-      generateMap(coords, globalMap);
+  getWeatherData(city, function(coords){
+    getAirNowData(coords, function(condition){
+        generateMap(coords, globalMap, condition);
+      });
     });
   });
 
@@ -47,9 +48,16 @@ function updateDisplay(object){
 get_data.addEventListener("click", function(){
   display.innerHTML = "";
   var city = document.getElementById('city').value;
+
+  var cityCapitalized = city.split("");
+  cityCapitalized[0] = cityCapitalized[0].toUpperCase();
+  cityCapitalized = cityCapitalized.join("");
+  getUserData(cityCapitalized);
+
   getWeatherData(city, function(coords){
-    getAirNowData(coords);
-    generateMap(coords, globalMap);
+    getAirNowData(coords, function(condition){
+      generateMap(coords, globalMap, condition);
+    });
   });
 });
 
@@ -76,19 +84,19 @@ function getWeatherData(city, callback){
   request.send();
 }
 
-function getAirNowData(coords){
+function getAirNowData(coords, callback){
   var request = new XMLHttpRequest();
   request.addEventListener('load', function(data){
 
     var airData = JSON.parse(data.currentTarget.responseText);
-
-    console.log('airData', airData);
 
     updateDisplay({
       "AirNow Category" : airData[0].Category.Name,
       "AirNow Condition" : airData[0].Category.Number,
       "Discussion" : airData[0].Discussion || "N/A"
     });
+
+    callback(airData[0].Category.Name);
 
   });
   request.open('GET', "/api/airnow/" + coords.lon + "/" + coords.lat);
