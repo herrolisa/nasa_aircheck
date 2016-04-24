@@ -1,61 +1,46 @@
 function generateMap(coords, mymap){
 
+  mymap.setView([coords.lat, coords.lon], 13);
 
-mymap.setView([coords.lat, coords.lon], 13);
+  var marker;
 
-var marker = L.marker([coords.lat, coords.lon]).addTo(mymap);
+  var medicalHelp = ['CVS ', 'LongsDrugs', 'Walgreens', 'Paper-Weight Clinic', 'Dr. Gomagames', 'PamPam Pharmacy', 'JoejoeBinx Hospital', 'Great-Success Hospital', 'Lisa-Pizza Urgent Care'];
 
-var circle = L.circle([coords.lat, coords.lon], 500, {
-    color: 'red',
-    fillColor: '#f03',
-    fillOpacity: 0.5
-}).addTo(mymap);
+  for (var i = 0; i < 6; i++) {
+    marker = L.marker([coords.lat + Math.floor(Math.random()*5)/100, coords.lon + Math.floor(Math.random()*5)/100]).addTo(mymap);
+    marker.bindPopup(medicalHelp[Math.floor(Math.random() * medicalHelp.length)]).openPopup();
+  }
 
-// var polygon = L.polygon([
-//     [21.30694, -157.858337],
-//     [21.305, -157.8582],
-//     [21.304, -157.857]
-// ]).addTo(mymap);
+  // var circle = L.circle([coords.lat, coords.lon], 900, {
+  //     color: 'red',
+  //     fillColor: '#f03',
+  //     fillOpacity: 0.5
+  // }).addTo(mymap);
 
-
-marker.bindPopup("<b>Honolulu!</b><br>I am a popup.").openPopup();
-circle.bindPopup("I am a circle.");
-// polygon.bindPopup("I am a polygon.");
-
-
-var popup = L.popup();
-
-var popup = L.popup()
-    .setLatLng([coords.lat, coords.lon])
-    .setContent("I am a standalone popup.")
-    .openOn(mymap);
-
-function onMapClick(e) {
-    popup
-        .setLatLng(e.latlng)
-        .setContent("You clicked the map at " + e.latlng.toString())
-        .openOn(mymap);
-}
-
-mymap.on('click', onMapClick);
+  // var polygon = L.polygon([
+  //     [21.30694, -157.858337],
+  //     [21.305, -157.8582],
+  //     [21.304, -157.857]
+  // ]).addTo(mymap);
 
 
-// function onMouseOver(e) {
-//     popup
-//         .setLatLng(e.latlng)
-//         .setContent("You clicked the map at " + e.latlng.toString())
-//         .openOn(mymap);
-// }
+  // circle.bindPopup("I am a circle.");
+  // polygon.bindPopup("I am a polygon.");
+  // var popup = L.popup();
 
+  var popup = L.popup()
+      .setLatLng([coords.lat + 0.0025, coords.lon + 0.001])
+      .setContent("Air quality here is pretty " + 'GOOD')
+      .openOn(mymap);
 
-var canvasTiles = L.tileLayer.canvas();
+  function onMapClick(e) {
+      popup
+          .setLatLng(e.latlng)
+          .setContent("Count of ppl suffering from " + 'allergies or respiratory symptoms')
+          .openOn(mymap);
+  }
 
-canvasTiles.drawTile = function(canvas, tilePoint, zoom) {
-    var ctx = canvas.getContext('2d');
-    // draw something on the tile canvas
-}
-
-mymap.on('click', onMapClick);
+  mymap.on('click', onMapClick);
 
 
 }

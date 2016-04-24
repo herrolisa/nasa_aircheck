@@ -8,7 +8,6 @@ window.onload = function(){
   var request = new XMLHttpRequest();
   request.addEventListener('load', function(data){
     var city = data.currentTarget.responseText;
-    console.log('LOAD');
     globalMap = L.map('mapid');
 
       L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
