@@ -12,7 +12,7 @@ window.onload = function(){
       generateMap(coords);
     });
   });
-  request.open('GET', "/currentCity");
+  request.open('GET', "/search/currentCity");
   request.send();
 };
 
@@ -27,6 +27,7 @@ function updateDisplay(object){
 }
 
 get_data.addEventListener("click", function(){
+  display.innerHTML = "";
   var city = document.getElementById('city').value;
   getWeatherData(city, function(coords){
     getAirNowData(coords);
