@@ -7,6 +7,7 @@ const express    = require('express'),
       APIs = require('./APIs/apis.js')
       ;
 
+var currentCity = 'honolulu, us';
 
 app
   .use(bodyParser.urlencoded({extended: true}))
@@ -27,8 +28,12 @@ app.get('/api/openweather/:city', function(req,res){
 });
 
 app.post('/search', function(req,res){
-  console.log(req.body);
+  currentCity = (req.body.city);
   res.redirect('/data.html');
+});
+
+app.get('/currentCity', function(req,res){
+  res.send(currentCity);
 });
 
 app.listen(3000, function() {

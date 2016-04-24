@@ -3,6 +3,19 @@
 var get_data = document.getElementById('get_data');
 var display = document.getElementById('display');
 
+window.onload = function(){
+  var request = new XMLHttpRequest();
+  request.addEventListener('load', function(data){
+    var city = data.currentTarget.responseText;
+    getWeatherData(city, function(coords){
+      getAirNowData(coords);
+      generateMap(coords);
+    });
+  });
+  request.open('GET', "/currentCity");
+  request.send();
+};
+
 function updateDisplay(object){
   for (var prop in object){
     if(object.hasOwnProperty(prop)){
