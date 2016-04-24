@@ -3,99 +3,110 @@
 <head>
   <meta charset="UTF-8">
   <title>User Form</title>
+  <link rel="stylesheet" href="./css/user.css">
 </head>
 <body>
+<div class="container">
+  <h1>Symptoms Tracker</h1>
+  <p>Please indicate to what degree are your symptoms affecting you on the scale from 0 (no symptom) to 5 (most severe): </p>
 
-<h1>Symptoms Tracker</h1>
-
-<p>On a degree of 0 - 5 (0 : no symptom, 5: most severe)</p>
-<p>Please indicate to what degree are your symptoms affecting you : </p>
-
-<form action="public/js/user.js" method="post" target="_blank" accept-charset="UTF-8"
-enctype="application/x-www-form-urlencoded" autocomplete="off" novalidate>
-
-
-<span>
- <p>Coughing</p>
-  <input class='symptoms' type="radio" name="coughing" value="0">0
-  <input class='symptoms' type="radio" name="coughing" value="1">1
-  <input class='symptoms' type="radio" name="coughing" value="2">2
-  <input class='symptoms' type="radio" name="coughing" value="3">3
-  <input class='symptoms' type="radio" name="coughing" value="4">4
-  <input class='symptoms' type="radio" name="coughing" value="5">5
-</span>
-
-<span>
- <p>Sneezing</p>
-  <input class='symptoms' type="radio" name="sneezing" value="0">0
-  <input class='symptoms' type="radio" name="sneezing" value="1">1
-  <input class='symptoms' type="radio" name="sneezing" value="2">2
-  <input class='symptoms' type="radio" name="sneezing" value="3">3
-  <input class='symptoms' type="radio" name="sneezing" value="4">4
-  <input class='symptoms' type="radio" name="sneezing" value="5">5
-</span>
-
-
-<span>
- <p>Itchy Eyes And Nose</p>
-  <input class='symptoms' type="radio" name="itchyeyesandnose" value="0">0
-  <input class='symptoms' type="radio" name="itchyeyesandnose" value="1">1
-  <input class='symptoms' type="radio" name="itchyeyesandnose" value="2">2
-  <input class='symptoms' type="radio" name="itchyeyesandnose" value="3">3
-  <input class='symptoms' type="radio" name="itchyeyesandnose" value="4">4
-  <input class='symptoms' type="radio" name="itchyeyesandnose" value="5">5
-</span>
-
-
-<span>
- <p>Sore Throat</p>
-  <input class='symptoms' type="radio" name="sorethroat" value="0">0
-  <input class='symptoms' type="radio" name="sorethroat" value="1">1
-  <input class='symptoms' type="radio" name="sorethroat" value="2">2
-  <input class='symptoms' type="radio" name="sorethroat" value="3">3
-  <input class='symptoms' type="radio" name="sorethroat" value="4">4
-  <input class='symptoms' type="radio" name="sorethroat" value="5">5
-</span>
-
-
-<span>
- <p>Shortness Of Breath</p>
-  <input class='symptoms' type="radio" name="shortnessofbreath" value="0">0
-  <input class='symptoms' type="radio" name="shortnessofbreath" value="1">1
-  <input class='symptoms' type="radio" name="shortnessofbreath" value="2">2
-  <input class='symptoms' type="radio" name="shortnessofbreath" value="3">3
-  <input class='symptoms' type="radio" name="shortnessofbreath" value="4">4
-  <input class='symptoms' type="radio" name="shortnessofbreath" value="5">5
-</span>
-
-
-<span>
- <p>Watery Eyes</p>
-  <input class='symptoms' type="radio" name="wateryeyes" value="0">0
-  <input class='symptoms' type="radio" name="wateryeyes" value="1">1
-  <input class='symptoms' type="radio" name="wateryeyes" value="2">2
-  <input class='symptoms' type="radio" name="wateryeyes" value="3">3
-  <input class='symptoms' type="radio" name="wateryeyes" value="4">4
-  <input class='symptoms' type="radio" name="wateryeyes" value="5">5
-</span>
-
-
-<span>
- <p>Stuffy Nose</p>
-  <input class='symptoms' type="radio" name="stuffynose" value="0">0
-  <input class='symptoms' type="radio" name="stuffynose" value="1">1
-  <input class='symptoms' type="radio" name="stuffynose" value="2">2
-  <input class='symptoms' type="radio" name="stuffynose" value="3">3
-  <input class='symptoms' type="radio" name="stuffynose" value="4">4
-  <input class='symptoms' type="radio" name="stuffynose" value="5">5
-</span>
-
-
-<input type="submit">
-
-
-</form>
-
+  <form action="public/js/user.js" method="post" target="_blank" accept-charset="UTF-8"
+  enctype="application/x-www-form-urlencoded" autocomplete="off" novalidate>
+    <div class="survey">
+      <div class="survey-left">
+        <p>Coughing</p>
+      </div><!-- .survey-left -->
+      <div class="survey-right">
+        <input class='symptoms' type="radio" name="coughing" value="0" id="cough-radio0"><label for="cough-radio0">0</label>
+        <input class='symptoms' type="radio" name="coughing" value="1" id="cough-radio1"><label for="cough-radio1">1</label>
+        <input class='symptoms' type="radio" name="coughing" value="2" id="cough-radio2"><label for="cough-radio2">2</label>
+        <input class='symptoms' type="radio" name="coughing" value="3" id="cough-radio3"><label for="cough-radio3">3</label>
+        <input class='symptoms' type="radio" name="coughing" value="4" id="cough-radio4"><label for="cough-radio4">4</label>
+        <input class='symptoms' type="radio" name="coughing" value="5" id="cough-radio5"><label for="cough-radio5">5</label>
+      </div><!-- .survey-right -->
+    </div><!-- .survey -->
+    <div class="survey">
+      <div class="survey-left">
+        <p>Sneezing</p>
+      </div><!-- .survey-left -->
+      <div class="survey-right">
+        <input class='symptoms' type="radio" name="sneezing" value="0" id="sneeze-radio0"><label for="sneeze-radio0">0</label>
+        <input class='symptoms' type="radio" name="sneezing" value="1" id="sneeze-radio1"><label for="sneeze-radio1">1</label>
+        <input class='symptoms' type="radio" name="sneezing" value="2" id="sneeze-radio2"><label for="sneeze-radio2">2</label>
+        <input class='symptoms' type="radio" name="sneezing" value="3" id="sneeze-radio3"><label for="sneeze-radio3">3</label>
+        <input class='symptoms' type="radio" name="sneezing" value="4" id="sneeze-radio4"><label for="sneeze-radio4">4</label>
+        <input class='symptoms' type="radio" name="sneezing" value="5" id="sneeze-radio5"><label for="sneeze-radio5">5</label>
+      </div><!-- .survey-right -->
+    </div><!-- .survey -->
+    <div class="survey">
+      <div class="survey-left">
+        <p>Itchy Eyes And Nose</p>
+      </div><!-- .survey-left -->
+      <div class="survey-right">
+        <input class='symptoms' type="radio" name="itchyeyesandnose" value="0" id="itchy-radio0"><label for="itchy-radio0">0</label>
+        <input class='symptoms' type="radio" name="itchyeyesandnose" value="1" id="itchy-radio1"><label for="itchy-radio1">1</label>
+        <input class='symptoms' type="radio" name="itchyeyesandnose" value="2" id="itchy-radio2"><label for="itchy-radio2">2</label>
+        <input class='symptoms' type="radio" name="itchyeyesandnose" value="3" id="itchy-radio3"><label for="itchy-radio3">3</label>
+        <input class='symptoms' type="radio" name="itchyeyesandnose" value="4" id="itchy-radio4"><label for="itchy-radio4">4</label>
+        <input class='symptoms' type="radio" name="itchyeyesandnose" value="5" id="itchy-radio5"><label for="itchy-radio5">5</label>
+      </div><!-- .survey-right -->
+    </div><!-- .survey -->
+    <div class="survey">
+      <div class="survey-left">
+        <p>Sore Throat</p>
+      </div><!-- .survey-left -->
+      <div class="survey-right">
+        <input class='symptoms' type="radio" name="sorethroat" value="0" id="throat-radio0"><label for="throat-radio0">0</label>
+        <input class='symptoms' type="radio" name="sorethroat" value="1" id="throat-radio1"><label for="throat-radio1">1</label>
+        <input class='symptoms' type="radio" name="sorethroat" value="2" id="throat-radio2"><label for="throat-radio2">2</label>
+        <input class='symptoms' type="radio" name="sorethroat" value="3" id="throat-radio3"><label for="throat-radio3">3</label>
+        <input class='symptoms' type="radio" name="sorethroat" value="4" id="throat-radio4"><label for="throat-radio4">4</label>
+        <input class='symptoms' type="radio" name="sorethroat" value="5" id="throat-radio5"><label for="throat-radio5">5</label>
+      </div><!-- .survey-right -->
+    </div><!-- .survey -->
+    <div class="survey">
+      <div class="survey-left">
+        <p>Shortness Of Breath</p>
+      </div><!-- .survey-left -->
+      <div class="survey-right">
+        <input class='symptoms' type="radio" name="shortnessofbreath" value="0" id="breath-radio0"><label for="breath-radio0">0</label>
+        <input class='symptoms' type="radio" name="shortnessofbreath" value="1" id="breath-radio1"><label for="breath-radio1">1</label>
+        <input class='symptoms' type="radio" name="shortnessofbreath" value="2" id="breath-radio2"><label for="breath-radio2">2</label>
+        <input class='symptoms' type="radio" name="shortnessofbreath" value="3" id="breath-radio3"><label for="breath-radio3">3</label>
+        <input class='symptoms' type="radio" name="shortnessofbreath" value="4" id="breath-radio4"><label for="breath-radio4">4</label>
+        <input class='symptoms' type="radio" name="shortnessofbreath" value="5" id="breath-radio5"><label for="breath-radio5">5</label>
+      </div><!-- .survey-right -->
+    </div><!-- .survey -->
+    <div class="survey">
+      <div class="survey-left">
+        <p>Watery Eyes</p>
+      </div><!-- .survey-left -->
+      <div class="survey-right">
+        <input class='symptoms' type="radio" name="wateryeyes" value="0" id="watery-radio0"><label for="watery-radio0">0</label>
+        <input class='symptoms' type="radio" name="wateryeyes" value="1" id="watery-radio1"><label for="watery-radio1">1</label></label>
+        <input class='symptoms' type="radio" name="wateryeyes" value="2" id="watery-radio2"><label for="watery-radio2">2</label>
+        <input class='symptoms' type="radio" name="wateryeyes" value="3" id="watery-radio3"><label for="watery-radio3">3</label>
+        <input class='symptoms' type="radio" name="wateryeyes" value="4" id="watery-radio4"><label for="watery-radio4">4</label>
+        <input class='symptoms' type="radio" name="wateryeyes" value="5" id="watery-radio5"><label for="watery-radio5">5</label>
+      </div><!-- .survey-right -->
+    </div><!-- .survey -->
+    <div class="survey">
+      <div class="survey-left">
+        <p>Stuffy Nose</p>
+      </div><!-- .survey-left -->
+      <div class="survey-right">
+        <input class='symptoms' type="radio" name="stuffynose" value="0" id="stuffy-radio0"><label for="stuffy-radio0">0</label>
+        <input class='symptoms' type="radio" name="stuffynose" value="1" id="stuffy-radio1"><label for="stuffy-radio1">1</label>
+        <input class='symptoms' type="radio" name="stuffynose" value="2" id="stuffy-radio2"><label for="stuffy-radio2">2</label>
+        <input class='symptoms' type="radio" name="stuffynose" value="3" id="stuffy-radio3"><label for="stuffy-radio3">3</label>
+        <input class='symptoms' type="radio" name="stuffynose" value="4" id="stuffy-radio4"><label for="stuffy-radio4">4</label>
+        <input class='symptoms' type="radio" name="stuffynose" value="5" id="stuffy-radio5"><label for="stuffy-radio5">5</label>
+      </div><!-- .survey-right -->
+    </div><!-- .survey -->
+    <div class="clear"></div>
+  <input type="submit">
+  </form>
+</div>
 
 
 </body>
