@@ -5,7 +5,7 @@ const express     = require('express'),
       db          = require('./models'),
       apiRoute    = require('./routes/apiRoute.js'),
       searchRoute = require('./routes/searchRoute.js'),
-      User        = require('./models/user.js')
+      User        = db.User
       ;
 
 app
@@ -50,19 +50,20 @@ app.get('/allUsers/:city', function(req,res){
 
 app.post('/newUser', function(req,res){
   // console.log(req.body);
-  // User.create({
-  //   city : req.body.city,
-  //   coughing : req.body.coughing,
-  //   sneezing : req.body.sneezing,
-  //   itchyeyesandnose : req.body.itchyeyesandnose,
-  //   sorethroat : req.body.sorethroat,
-  //   shortnessofbreath : req.body.shortnessofbreath,
-  //   wateryeyes : req.body.wateryeyes,
-  //   stuffynose : req.body.stuffynose,
-  //   createdAt : new Date(),
-  //   updatedAt : new Date()
-  // }, function() {
-  // });
+  User.create({
+    location : req.body.city,
+    coughing : req.body.coughing,
+    sneezing : req.body.sneezing,
+    itchyeyesandnose : req.body.itchyeyesandnose,
+    sorethroat : req.body.sorethroat,
+    shortnessofbreath : req.body.shortnessofbreath,
+    wateryeyes : req.body.wateryeyes,
+    stuffynose : req.body.stuffynose,
+    createdAt : new Date(),
+    updatedAt : new Date()
+  })
+  .then(function(){
+    res.redirect("/");
+  });
 
-  res.redirect("/");
 });
