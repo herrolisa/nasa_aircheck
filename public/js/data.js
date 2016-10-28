@@ -38,15 +38,26 @@ window.onload = function(){
 function updateDisplay(object){
   for (var prop in object){
     if(object.hasOwnProperty(prop)){
-      var p = document.createElement('p');
-      p.innerHTML = prop + ": " + object[prop];
-      display.appendChild(p);
+
+      if(prop === "Discussion") {
+        var pd = document.createElement('p');
+        pd.innerHTML = prop + ": " + object[prop];
+        pd.className = "description";
+        display.appendChild(pd);
+      }
+      else {
+        var p = document.createElement('p');
+        p.innerHTML = prop + ": " + object[prop];
+        display.appendChild(p);
+      }
+
     }
   }
 }
 
 get_data.addEventListener("click", function(){
   display.innerHTML = "";
+  document.getElementById('chart').innerHTML = "";
   var city = document.getElementById('city').value;
 
   var cityCapitalized = city.split("");
@@ -93,7 +104,7 @@ function getAirNowData(coords, callback){
     updateDisplay({
       "AirNow Category" : airData[0].Category.Name,
       "AirNow Condition" : airData[0].Category.Number,
-      "Discussion" : airData[0].Discussion || "Air Quality All Good"
+      "Discussion" : airData[0].Discussion || "Air Quality is " + airData[0].Category.Name
     });
 
     callback(airData[0].Category.Name);
@@ -108,7 +119,7 @@ function getUserData(city){
   request.addEventListener('load', function(data){
     var airData = JSON.parse(data.currentTarget.responseText);
     visualize(airData);
-    updateDisplay(airData);
+    // updateDisplay(airData);
   });
   request.open('GET', "/allUsers/" + city);
   request.send();
@@ -121,7 +132,7 @@ function visualize(object) {
   var ANIM_DELAY, ANIM_DURATION, BAR_HEIGHT, COLORS, COLORS_G, DATA, H, INITIAL_WIDTH, M, MAX_VALUE, NAME, TOTAL_VALUE, W, container, g, highlight, highlightClear, host, oH, oW, percentScale, randomize, resize, svg, update, xScale, yScale;
   NAME = 'horizontal-bar';
   M = 0;
-  COLORS = ['#eaa54b', '#66a1e2', '#8065e4', '#48cb80'];
+  COLORS = ['#eaa54b', '#66a1e2', '#8065e4', '#48cb80', 'hsl(0, 50%, 50%)', 'hsl(250, 50%, 50%)', 'hsl(30, 100%, 50%)' ];
   COLORS_G = ['#b5b5b5', '#8c8c8c', '#6b6b6b', '#565656'];
   DATA = [
     {

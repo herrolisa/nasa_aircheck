@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function(sequelize, DataTypes) {
-  var User = sequelize.define('Users', {
+  var User = sequelize.define('User', {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -48,3 +48,18 @@ module.exports = function(sequelize, DataTypes) {
   });
   return User;
 };
+
+// module.exports = function(sequelize, DataTypes){
+//   var User = sequelize.define("User", {
+//     username: DataTypes.STRING
+//   },{
+//     classMethods: {
+//       associate: function(models){
+//         //defining one to many relationship between User and Tasks
+//         User.hasMany(models.Task);
+//       }
+//     }
+//   });
+
+//   return User;
+// };
